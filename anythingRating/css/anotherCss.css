@@ -1,0 +1,202 @@
+/* First vote */
+
+.star-rating,
+.star-rating a:hover,
+.star-rating a:active,
+.star-rating .current-rating{
+  background: url(../images/etoile20.png) left -1000px repeat-x;
+}
+.star-rating{
+  position:relative;
+  width:100px;
+  height:20px;
+  overflow:hidden;
+  list-style:none;
+  margin:0;
+  padding:0;
+  background-position: left top;
+}
+.star-rating li{
+  display: inline;
+}
+.star-rating a, 
+.star-rating .current-rating{
+  position:absolute;
+  top:0;
+  left:0;
+  text-indent:-1000em;
+  height:20px;
+  line-height:20px;
+  outline:none;
+  overflow:hidden;
+  border: none;
+}
+.star-rating a:hover{
+  background-position: left bottom;
+}
+.star-rating a.stars1{
+  width:20%;
+  z-index:6;
+}
+.star-rating a.stars2{
+  width:40%;
+  z-index:5;
+}
+.star-rating a.stars3{
+  width:60%;
+  z-index:4;
+}
+.star-rating a.stars4{
+  width:80%;
+  z-index:3;
+}
+.star-rating a.stars5{
+  width:100%;
+  z-index:2;
+}
+.star-rating .current-rating{
+  z-index:1;
+  background-position: left center;
+}  
+
+/* Second vote (already voted) */
+
+.star-rating2,
+.star-rating2 a:active,
+.star-rating2 .current-rating{
+  background: url(../images/etoile20_2.png) left -1000px repeat-x;
+}
+.star-rating2{
+  position:relative;
+  width:100px;
+  height:20px;
+  overflow:hidden;
+  list-style:none;
+  margin:0;
+  padding:0;
+  background-position: left top;
+}
+.star-rating2 li{
+  display: inline;
+}
+.star-rating2 a, 
+.star-rating2 .current-rating {
+  position:absolute;
+  top:0;
+  left:0;
+  text-indent:-1000em;
+  height:20px;
+  line-height:20px;
+  outline:none;
+  overflow:hidden;
+  border: none;
+  cursor:default;
+}
+
+.star-rating2 a.stars1{
+  width:20%;
+  z-index:6;
+}
+.star-rating2 a.stars2{
+  width:40%;
+  z-index:5;
+}
+.star-rating2 a.stars3{
+  width:60%;
+  z-index:4;
+}
+.star-rating2 a.stars4{
+  width:80%;
+  z-index:3;
+}
+.star-rating2 a.stars5{
+  width:100%;
+  z-index:2;
+}
+.star-rating2 .current-rating{
+  z-index:1;
+  background-position: left center;
+}
+
+/* rating styles */
+/* for an inline rater */
+.inline-rating{
+  display:-moz-inline-block;
+  display:-moz-inline-box;
+  display:inline-block;
+  vertical-align: middle;
+}
+.voted-twice {
+  background: #FFDDDD url(../images/rating_warning.gif) no-repeat 5px 50%;
+  padding:5px 5px 5px 16px;
+  text-align:center;
+  font-family:Verdana, Arial, Helvetica, sans-serif;
+  color:#333;
+  width:130px;
+  font-size:11px;
+  }
+.voted {
+  background: #E7FFCE url(../images/rating_tick.gif) no-repeat 5px 50%;
+  padding:5px 5px 5px 16px;
+  text-align:center;
+  font-family:Verdana, Arial, Helvetica, sans-serif;
+  color:#333;
+  width:130px;
+  font-size:11px;
+  }
+/* The text that displays the rating information */
+.score {
+  font-family:Verdana, Arial, Helvetica, sans-serif;
+  font-size:11px;
+  margin:10px 0 5px;
+  color:#FFF;
+  }
+/* Green text that shows 3.34/5 */
+.outNbsClass {
+  color:#00CC00;
+  font-weight:bold;
+  }
+.percentClass {
+/* Insert styles here for the percentage display. Example (74%) */
+  }
+.votesClass {
+/* Insert styles here for the votes display. Example (2 Votes) */
+  }
+.already-voted, .enddate, .more-less {
+  text-align:center;
+  font-size:12px;
+  font-weight:bold;
+  margin:10px 0;
+  color: red;
+  }
+
+/* Top rated list styles */
+div.topRatedList {
+  clear:both;
+  margin:15px auto;
+  }
+div.topRatedList p.topLabel{
+  font-size:16px;
+  font-weight:bold;
+  color:#84953E;
+  margin:0;
+  }
+div.topRatedList table {
+  border:medium solid #FFF;
+  width:80%;
+  text-align:center;
+  margin:10px auto;
+  }
+.topRatedList th {
+  background-color:#84953E;
+  color:#FFF;
+  border:1px solid #6495ed;
+  width:15%;
+  }
+.topRatedList th.toptitle {
+  width:25%;
+  }
+.topRatedList td{
+  background-color:#252D37;
+  border: 1px solid #6495ed;
+  }

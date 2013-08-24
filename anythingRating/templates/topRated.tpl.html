@@ -1,0 +1,22 @@
+[+atr.tpl:is=`result`:then=`<tr id="tr-[+atr.rank+]">
+  <td>[+atr.rank+]</td>
+  <td>[+atr.rating+]/[+atr.nbstars+] [+atr.lbstars+]</td>
+  <td>[+atr.nbvotes+] [+atr.lbvotes+]</td>
+  <td>[+atr.uselink:is=`1`:then=`<a href="[+atr.link+]">`+][+atr.title+][+atr.uselink:is=`1`:then=`</a>`+]</td>
+  [+atr.usedescr:is=`1`:then=`<td>[+atr.descr+]</td>`+]
+  [+atr.useimage:is=`1`:then=`<td><img src="[+atr.image+]"></td>`+]
+</tr>`+]
+[+atr.tpl:is=`toprated`:then=`<div id="[+atr.groupid+]" class="topRatedList">
+<p class="topLabel">[+atr.toplabel+]</p>
+<table>
+<tr class="toprated">
+  <th>[+atr.hdrank+]</th>
+  <th>[+atr.hdscore+]</th>
+  <th>[+atr.hdnbvotes+]</th>
+  <th class="toptitle">[+atr.hdtitle+]</th>
+  [+atr.usedescr:is=`1`:then=`<th class="topdescr">[+atr.hddescr+]</th>`+]
+  [+atr.useimage:is=`1`:then=`<th class="topimage">[+atr.hdimage+]</th>`+]
+</tr>
+[+atr.results+]
+</table>
+</div>`+]
