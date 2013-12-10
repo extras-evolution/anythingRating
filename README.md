@@ -316,7 +316,7 @@ Credits
 ----------------------------------------------------------------
 
 Partly based on Ajax Dynamic Star Rating 1.6 by Jordan Boesch (www.boedesign.com)
-and modified by Coroico (www.modx.wangba.fr)
+and modified by Coroico (www.evo.wangba.fr)
 
 Copyright & Licencing:
 ----------------------
