@@ -226,12 +226,12 @@ class AnythingRating{
     $liSection = '<li class="current-rating" style="width:'.$percent.';"></li>'."\n";
     
     // No vote allowed for this user or item already voted
-    if ( !$this->allowedToVote || $this->config['noVotes'] || isset($_COOKIE[$grp.'_'.$id]) ){
+    if (!$this->allowedToVote || $this->config['noVotes'] || isset($_COOKIE[$grp . '_' . $id])) {
 
         $raterClass = "star-rating2";
-        for($i=1;$i<=$nbs;$i++){
+        for ($i = 1; $i <= $nbs; $i++) {
 
-            $label = ($i==1) ? $onestar_outof : $stars_outof;
+            $label = ($i == 1) ? $onestar_outof : $stars_outof;
             $label = str_replace('%s',$i,$label);
             $label = str_replace('%n',$nbs,$label);
 
@@ -250,22 +250,26 @@ class AnythingRating{
     else {
         // allowed to vote for this item
         $raterClass = "star-rating";    
-        for($i=1;$i<=$nbs;$i++){
+        for ($i = 1; $i <= $nbs; $i++) {
 
             $label = ($i==1) ? $onestar_outof : $stars_outof;
-            $label = str_replace('%s',$i,$label);
-            $label = str_replace('%n',$nbs,$label);
+            $label = str_replace('%s', $i, $label);
+            $label = str_replace('%n', $nbs, $label);
 
-            $curl = 'atrGrp='.$grp.'&atrId='.$id.'&rating='.$i*100/$nbs;
+            $curl = array(
+				'atrGrp' => $grp,
+				'atrId' => $id,
+				'rating' => $i * 100 / $nbs
+				);
 
             $liPh = array(
-              '[+atr.onclick+]' => 'rate(\''.$i*100/$nbs.'\',\''.$grp.'\',\''.$id.'\');return false;',
+              '[+atr.onclick+]' => 'rate(\'' . $i * 100 / $nbs . '\',\'' . $grp . '\',\'' . $id . '\');return false;',
               '[+atr.href+]' => $this->getUrl($curl),
               '[+atr.title+]' => $label,
-              '[+atr.class+]' => 'stars'.$i,
+              '[+atr.class+]' => 'stars' . $i,
               '[+atr.lnk+]' => $i
             );
-            $textLi = str_replace(array_keys($liPh),array_values($liPh),$tplLi);
+            $textLi = str_replace(array_keys($liPh), array_values($liPh), $tplLi);
             unset($liPh);
             $liSection .= $textLi;
         }
@@ -343,7 +347,7 @@ class AnythingRating{
           `rating` int(11) NOT NULL,
           `lastIP` varchar(255) NOT NULL,
           `nbIP` int(11) NOT NULL,
-          `voteDate` TIMESTAMP(12),
+          `voteDate` TIMESTAMP,
           PRIMARY KEY  (`id`)
           ) ENGINE=MyISAM;";
 
@@ -401,28 +405,27 @@ class AnythingRating{
     }
   }
 
-  function getUrl($curl=''){
-      if ($curl == '') return $_SERVER['REQUEST_URI'];
+  function getUrl($curl = array()){
+      if (empty($curl)) return $_SERVER['REQUEST_URI'];
 
-      $uri = explode('?',$_SERVER['REQUEST_URI']);
+      $uri = explode('?', $_SERVER['REQUEST_URI']);
 
       $i = 0;
-      $qs = '';
+      $qs = array();
+	  $amp = ($this->config['xhtmlUrl']) ? '&amp;' : '&';
 
-      foreach ($_GET as $param=>$value) {
+      foreach ($_GET as $param => $value) {
           if ($param != 'atrGrp' && $param != 'atrId' && $param != 'rating') {
-            $amp = ($i == 0) ? '' : '&';
             $param2 = htmlspecialchars($param, ENT_QUOTES);
             $value2 = htmlspecialchars($value, ENT_QUOTES);
-            $qs .= $amp . $param2 . '=' . $value2;
-            $i++;
+            $qs[$param2] = $value2;
           }
       }
 
-      if ($qs != '') $qs = $uri[0].'?'.$qs.'&'.$curl;
-      else $qs = $uri[0].'?'.$curl;
+	  $qs = array_merge($qs, $curl);
+	  if ($this->config['friendlyUrls']) unset ($qs['q']);
 
-      return $qs;  
+      return $uri[0] . '?' . http_build_query($qs, '', $amp);
   }
 
   function doVote($rating, $js = false) {

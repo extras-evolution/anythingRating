@@ -33,7 +33,7 @@ MORE : See the anythingRating.readme.txt file for more informations
 
 global $modx;
 
-define('ATR_IVERSION', "1.0");
+define('ATR_IVERSION', "1.0.1");
 
 // check version files
 if (!defined ('ATR_VERSION')){
@@ -68,8 +68,13 @@ $cfg = array(
     'define' => isset($define) ? $define : 0,
 
     // Get the top rated item list
-    'getTopRated' => isset($getTopRated) ? $getTopRated : 0
+    'getTopRated' => isset($getTopRated) ? $getTopRated : 0,
 
+	// build XHTML compatible URLs [ 1 | 0 ]
+    'xhtmlUrl' => isset($xhtmlUrl) ? (int) $xhtmlUrl : 1,
+
+	// friendly URLs
+	'friendlyUrls' => $modx->config['friendly_urls']
 );
       
 if ($cfg['define']){
