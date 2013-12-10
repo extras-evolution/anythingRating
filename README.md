@@ -322,12 +322,3 @@ Partly based on Ajax Dynamic Star Rating 1.6 by Jordan Boesch (www.boedesign.com
  ----------------------
  Licensed under Creative Commons
  http://creativecommons.org/licenses/by-nc-nd/2.5/ca/
-
----------------------------------------------------------------
-:: Changelog:
-----------------------------------------------------------------
-
- 12-Apr-08 (1.0)
- -- Initial work based on Star Rating 1.6
-
-
