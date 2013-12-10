@@ -7,7 +7,7 @@
 //
 
 // AnythingRating Snippet folder location
-var _atrbase = 'assets/snippets/anythingRating/';
+var _atrbase = 'assets/snippets/anythingrating/';
 
 // pre-load default images
 if (document.images){

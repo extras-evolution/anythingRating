@@ -34,14 +34,14 @@ MORE : See the anythingRating.readme.txt file for more informations
 global $modx;
 
 // anythingRating version being executed
-define('ATR_VERSION', '1.0');
+define('ATR_VERSION', '1.0.1');
 
 // Path where anythingRating is installed
-define('ATR_SPATH', 'assets/snippets/anythingRating/');
+define('ATR_SPATH', 'assets/snippets/anythingrating/');
 
 //==============================================================================
 //include snippet file
-define ('ATR_PATH', $modx->config['base_path'].ATR_SPATH);
+define ('ATR_PATH', MODX_BASE_PATH . ATR_SPATH);
 
 $output = "";
 include(ATR_PATH.'includes/snippet.anythingRating.inc.php');

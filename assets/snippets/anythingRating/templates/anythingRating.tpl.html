@@ -1,10 +1,12 @@
-[+atr.tpl:is=`rating`:then=`<div id="[+atr.scoreId+]" class="score">
-[+atr.scoreSection+]
-</div>
-<ul id="[+atr.raterId+]" class="[+atr.raterClass+]">
-[+atr.raterLiSection+]
-</ul>
-<div class="msgClass" id="[+atr.msgId+]">[+atr.msgSection+]</div>`+]
+[+atr.tpl:is=`rating`:then=`<div class="anythingRating">
+	<ul id="[+atr.raterId+]" class="[+atr.raterClass+]">
+		[+atr.raterLiSection+]
+	</ul>
+	<div id="[+atr.scoreId+]" class="score">
+		[+atr.scoreSection+]
+	</div>
+	<div class="msgClass" id="[+atr.msgId+]">[+atr.msgSection+]</div>
+</div>`+]
 [+atr.tpl:is=`score`:then=`[+atr.intro+]
 <span class="outnbsClass">[+atr.rating+]/[+atr.nbstars+] [+atr.lbstars+]</span>
 <span class="votesClass">([+atr.nbvotes+] [+atr.lbvotes+])</span>`+]
