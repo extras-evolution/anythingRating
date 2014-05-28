@@ -21,7 +21,7 @@ global $modx;
 define('ATR_VERSION', '1.0.1');
 
 // Path where anythingRating is installed
-define('ATR_SPATH', 'assets/snippets/anythingrating/');
+define('ATR_SPATH', 'assets/snippets/anythingRating/');
 
 //==============================================================================
 //include snippet file
